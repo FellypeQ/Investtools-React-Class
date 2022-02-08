@@ -1,7 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
+import DuckProducts from "./DuckProducts";
 import ListItem from "./ListItem";
 
-const List = ({ products, manipulate }) => {
+const List = ({ productsList }) => {
+  const inicialNewItem = { name: "", price: 0, quantity: 0 };
+  const [newItem, setNewItem] = React.useState(inicialNewItem);
+
   return (
     <table className="table">
       <thead>
@@ -14,18 +19,18 @@ const List = ({ products, manipulate }) => {
         </tr>
       </thead>
       <tbody>
-        {products.map((product, idx) => (
-          <ListItem
-            product={product}
-            key={idx}
-            idx={idx}
-            manipulate={manipulate}
-          />
+        {productsList.map((product, idx) => (
+          <ListItem key={idx} product={product} idx={idx} />
         ))}
-        <ListItem action={"new"} manipulate={manipulate} />
+        <ListItem />
       </tbody>
     </table>
   );
 };
 
-export default List;
+const mapStateToProps = (state, ownProps) => ({
+  productsList: state.products.list,
+});
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

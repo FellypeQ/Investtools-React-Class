@@ -6,6 +6,8 @@ export default new Duck({
     types: ['LOAD', 'CREATE', 'UPDATE', 'REMOVE'],
     reducer: (state, action, duck) => {
         switch (action.type) {
+            case duck.types.LOAD:
+                return { ...state, load: true }
             default: return state
         }
     },

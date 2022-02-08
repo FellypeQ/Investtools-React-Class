@@ -3,9 +3,13 @@ import thunk from "redux-thunk"
 import promise from "redux-promise"
 import createLogger from "redux-logger"
 
-import DuckProduct from "./DuckProduct"
+import DuckWidgets from "./DuckWidgets"
+import DuckProducts from "./DuckProducts"
 
-const reducer = combineReducers({ [DuckProduct.store]: DuckProduct.reducer })
+const reducer = combineReducers({
+    [DuckWidgets.store]: DuckWidgets.reducer,
+    [DuckProducts.store]: DuckProducts.reducer
+})
 
 const middlewares = [thunk, promise, createLogger]
 
@@ -13,4 +17,4 @@ const createStoreWithMiddlewares = applyMiddleware(...middlewares)(createStore)
 
 export const store = createStoreWithMiddlewares(reducer)
 
-store.dispatch(DuckProduct.creators.loadWidgets())
+store.dispatch(DuckWidgets.creators.loadWidgets())
