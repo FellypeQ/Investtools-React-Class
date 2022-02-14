@@ -13,9 +13,13 @@ const ListaCompra = ({ productsTotal, calcTotal }) => {
   function continuePurchase() {
     navigate("/address");
   }
+  function goToPokemon() {
+    navigate("/pokemon");
+  }
 
   return (
     <div>
+      <button onClick={goToPokemon}>Ir para pokemon</button>
       <h1>My market list</h1>
       <button
         onClick={() => {
