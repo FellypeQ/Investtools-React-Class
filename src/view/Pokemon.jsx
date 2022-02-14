@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 import { serverPoke } from "../server";
+import { useParams } from "react-router-dom";
 
 const Pokemon = ({}) => {
   const [quantity, setQuantity] = React.useState(0);
@@ -47,6 +48,10 @@ const Pokemon = ({}) => {
         <div key={index}>
           <p>{item.name}</p>
           <a href={item.url}>{item.name}</a>
+          <br />
+          <a href={`/pokemon/${index + 1}`}>
+            {item.name} para rota React id:{index}
+          </a>
         </div>
       ))}
     </div>
