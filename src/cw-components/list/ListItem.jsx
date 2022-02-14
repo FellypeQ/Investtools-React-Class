@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import DuckProducts from "./DuckProducts";
+import DuckProducts from "../../duck/DuckProducts";
 
 const ListItem = ({ product, idx, manipulate }) => {
   const inicialNewItem = { name: "", price: 0, quantity: 0 };

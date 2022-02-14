@@ -1,12 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import DuckProducts from "./DuckProducts";
 import ListItem from "./ListItem";
 
 const List = ({ productsList }) => {
-  const inicialNewItem = { name: "", price: 0, quantity: 0 };
-  const [newItem, setNewItem] = React.useState(inicialNewItem);
-
   return (
     <table className="table">
       <thead>
